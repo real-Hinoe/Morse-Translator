@@ -1,2 +1,2 @@
-# Morse-Retranslator
+# Morse-Translator
 Транслятор/Распознаватель азбуки Морзе для мобильных устройств на базе Android
