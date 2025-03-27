@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Morse Translator</string>
-    <string name="lang_button_default">EN</string>
-    <string name="flashlight_button_description">Flashlight</string>
+    <string name="app_name">Транслятор Морзе</string>
+    <string name="lang_button_default">RU</string>
+    <string name="flashlight_button_description">Фонарик</string>
+    <string name="microphone_button_description">Микрофон</string>
     <string name="translate_button">Перевести</string>
     <string name="input_hint">Ввод</string>
     <string name="output_hint">Вывод</string>

@@ -15,25 +15,10 @@
         android:background="@color/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/lang_button"
-        android:layout_width="wrap_content"
-        android:layout_height="55sp"
-        android:layout_marginEnd="5sp"
-        android:backgroundTint="@color/button_background"
-        android:fontFamily="@font/aoboshi_one"
-        android:text="@string/lang_button_default"
-        android:textColor="@color/button_text"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar_upper"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar_upper"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_upper"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_lower"
@@ -42,9 +27,22 @@
         android:background="@color/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageButton
+        android:id="@+id/microphone_button"
+        android:layout_width="55sp"
+        android:layout_height="55sp"
+        android:backgroundTint="@color/button_background"
+        android:contentDescription="@string/microphone_button_description"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="@id/toolbar_upper"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar_upper"
+        app:layout_constraintTop_toTopOf="@+id/toolbar_upper"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_upper"
+        app:srcCompat="@drawable/microphone" />
 
     <Button
         android:id="@+id/translate_button"
@@ -55,10 +53,10 @@
         android:text="@string/translate_button"
         android:textColor="@color/button_text"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar_lower"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar_lower"
         app:layout_constraintStart_toStartOf="@+id/toolbar_lower"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_lower" />
+        app:layout_constraintEnd_toEndOf="@+id/toolbar_lower"
+        app:layout_constraintTop_toTopOf="@+id/toolbar_lower"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar_lower" />
 
     <ImageButton
         android:id="@+id/flashlight_button"
@@ -67,40 +65,43 @@
         android:contentDescription="@string/flashlight_button_description"
         android:scaleType="fitCenter"
         android:backgroundTint="@color/button_background"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/toolbar_lower"
         app:layout_constraintTop_toTopOf="@+id/toolbar_lower"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/flashlight" />
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/toolbar_lower"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_upper">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_upper"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar_lower">
 
         <EditText
             android:id="@+id/text_input"
             android:layout_width="match_parent"
-            android:layout_height="310sp"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:autofillHints="textInput"
-            android:hint="@string/input_hint"
             android:ems="10"
             android:gravity="start|top"
+            android:hint="@string/input_hint"
+            android:textSize="22sp"
             android:inputType="textMultiLine"
             tools:ignore="VisualLintTextFieldSize" />
 
         <TextView
             android:id="@+id/text_output"
             android:layout_width="match_parent"
-            android:layout_height="310sp"
-            android:layout_marginStart="5sp"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:layout_marginStart="4sp"
             android:hint="@string/output_hint"
-            android:textSize="18sp" />
+            android:scrollbars="vertical"
+            android:textSize="22sp" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
