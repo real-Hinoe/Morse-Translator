@@ -9,7 +9,7 @@
     tools:context=".MainActivity" >
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_upper"
+        android:id="@+id/toolbarUpper"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/toolbar"
@@ -21,7 +21,7 @@
         app:layout_constraintHorizontal_bias="1.0" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_lower"
+        android:id="@+id/toolbarLower"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/toolbar"
@@ -32,20 +32,32 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageButton
-        android:id="@+id/microphone_button"
+        android:id="@+id/microphoneButton"
         android:layout_width="55sp"
         android:layout_height="55sp"
         android:backgroundTint="@color/button_background"
         android:contentDescription="@string/microphone_button_description"
         android:scaleType="fitCenter"
-        app:layout_constraintStart_toStartOf="@id/toolbar_upper"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar_upper"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_upper"
-        app:layout_constraintBottom_toBottomOf="@id/toolbar_upper"
+        app:layout_constraintStart_toStartOf="@id/toolbarUpper"
+        app:layout_constraintEnd_toEndOf="@+id/toolbarUpper"
+        app:layout_constraintTop_toTopOf="@+id/toolbarUpper"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarUpper"
         app:srcCompat="@drawable/microphone" />
 
+    <ImageButton
+        android:id="@+id/speakerButton"
+        android:layout_width="55sp"
+        android:layout_height="55sp"
+        android:backgroundTint="@color/button_background"
+        android:contentDescription="@string/speaker_button_description"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="@+id/toolbarLower"
+        app:layout_constraintTop_toTopOf="@+id/toolbarLower"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarLower"
+        app:srcCompat="@drawable/speaker" />
+
     <Button
-        android:id="@+id/translate_button"
+        android:id="@+id/translateButton"
         android:layout_width="wrap_content"
         android:layout_height="55sp"
         android:backgroundTint="@color/button_background"
@@ -53,22 +65,22 @@
         android:text="@string/translate_button"
         android:textColor="@color/button_text"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/toolbar_lower"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar_lower"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_lower"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar_lower" />
+        app:layout_constraintStart_toStartOf="@+id/toolbarLower"
+        app:layout_constraintEnd_toEndOf="@+id/toolbarLower"
+        app:layout_constraintTop_toTopOf="@+id/toolbarLower"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarLower" />
 
     <ImageButton
-        android:id="@+id/flashlight_button"
+        android:id="@+id/flashlightButton"
         android:layout_width="55sp"
         android:layout_height="55sp"
         android:contentDescription="@string/flashlight_button_description"
         android:scaleType="fitCenter"
         android:backgroundTint="@color/button_background"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar_lower"
-        app:layout_constraintTop_toTopOf="@+id/toolbar_lower"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@drawable/flashlight" />
+        app:layout_constraintEnd_toEndOf="@+id/toolbarLower"
+        app:layout_constraintTop_toTopOf="@+id/toolbarLower"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarLower"
+        app:srcCompat="@drawable/flashlight_on" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -76,11 +88,11 @@
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_upper"
-        app:layout_constraintBottom_toTopOf="@+id/toolbar_lower">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarUpper"
+        app:layout_constraintBottom_toTopOf="@+id/toolbarLower">
 
         <EditText
-            android:id="@+id/text_input"
+            android:id="@+id/textInput"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -93,7 +105,7 @@
             tools:ignore="VisualLintTextFieldSize" />
 
         <TextView
-            android:id="@+id/text_output"
+            android:id="@+id/textOutput"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
