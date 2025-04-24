@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Object Colors -->
+    <color name="active">#65A4E7</color>
+    <color name="background">#FFFFFF</color>
+    <color name="toolbar">#7DC7F5</color>
+    <color name="button_text">#000000</color>
+    <color name="button_background">#EBEBEB</color>
+
+    <!-- Basic Colors -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <!-- 25% opacity -->
+    <color name="black25">#40000000</color>
+    <color name="white25">#40FFFFFF</color>
+    <!-- 50% opacity -->
+    <color name="black50">#80000000</color>
+    <color name="white50">#80FFFFFF</color>
+    <!-- 75% opacity -->
+    <color name="black75">#BF000000</color>
+    <color name="white75">#BFFFFFFF</color>
+</resources>

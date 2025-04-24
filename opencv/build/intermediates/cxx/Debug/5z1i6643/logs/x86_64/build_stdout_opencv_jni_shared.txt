@@ -1,0 +1,2 @@
+ninja: Entering directory `C:\Users\evilt\AndroidStudioProjects\MorseTranslator\opencv\.cxx\Debug\5z1i6643\x86_64'
+ninja: no work to do.
