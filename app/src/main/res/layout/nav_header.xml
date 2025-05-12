@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:opencv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15sp" >
+
+    <TextView
+        android:id="@+id/headerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/header_label"
+        android:textColor="@color/white"
+        android:textSize="35sp" />
+
+    <LinearLayout
+        android:id="@+id/languageSection"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10" >
+
+        <TextView
+            android:id="@+id/languageLabel"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:padding="5sp"
+            android:text="@string/language_label"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/languageValue"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="end"
+            android:padding="5sp"
+            android:text="@string/language_default"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/languageSpinner"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:entries="@array/languages"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dotLengthLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:padding="5sp"
+        android:text="@string/dot_length_label"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/dotLengthSection"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10" >
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/dotLengthSlider"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:contentDescription="@string/dot_length_description"
+            android:padding="5sp"
+            android:stepSize="50"
+            android:value="@string/dot_length_default"
+            android:valueFrom="50"
+            android:valueTo="1000"
+            opencv:labelBehavior="floating" />
+
+        <TextView
+            android:id="@+id/dotLengthValue"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="5sp"
+            android:text="@string/dot_length_default"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/pauseLengthLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:padding="5sp"
+        android:text="@string/pause_length_label"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/pauseLengthSection"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10" >
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/pauseLengthSlider"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:contentDescription="@string/pause_length_description"
+            android:padding="5sp"
+            android:stepSize="0.2"
+            android:value="@string/pause_length_default"
+            android:valueFrom="0.2"
+            android:valueTo="5.0"
+            opencv:labelBehavior="floating" />
+
+        <TextView
+            android:id="@+id/pauseLengthValue"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="5sp"
+            android:text="@string/pause_length_default"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/imgBrightnessLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:padding="5sp"
+        android:text="@string/img_brightness_label"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/imgBrightnessSection"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10" >
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/imgBrightnessSlider"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:contentDescription="@string/img_brightness_description"
+            android:padding="5sp"
+            android:stepSize="15"
+            android:value="@string/img_brightness_default"
+            android:valueFrom="0"
+            android:valueTo="255"
+            opencv:labelBehavior="floating" />
+
+        <TextView
+            android:id="@+id/imgBrightnessValue"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="5sp"
+            android:text="@string/img_brightness_default"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/thresholdLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:padding="5sp"
+        android:text="@string/threshold_label"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/thresholdSection"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:weightSum="10" >
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/thresholdSlider"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:contentDescription="@string/threshold_description"
+            android:padding="5sp"
+            android:stepSize="1"
+            android:value="@string/threshold_default"
+            android:valueFrom="1"
+            android:valueTo="30"
+            opencv:labelBehavior="floating" />
+
+        <TextView
+            android:id="@+id/thresholdValue"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="5sp"
+            android:text="@string/threshold_default"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/pixelBrightnessLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:padding="5sp"
+        android:text="@string/pixel_brightness_label"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/pixelBrightnessSection"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:weightSum="10" >
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/pixelBrightnessSlider"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:contentDescription="@string/pixel_brightness_description"
+            android:padding="5sp"
+            android:stepSize="2"
+            android:value="@string/pixel_brightness_default"
+            android:valueFrom="200"
+            android:valueTo="254"
+            opencv:labelBehavior="floating" />
+
+        <TextView
+            android:id="@+id/pixelBrightnessValue"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="5sp"
+            android:text="@string/pixel_brightness_default"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/gammaLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:padding="5sp"
+        android:text="@string/gamma_label"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/gammaSection"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:weightSum="10" >
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/gammaSlider"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:contentDescription="@string/gamma_description"
+            android:padding="5sp"
+            android:stepSize="0.5"
+            android:value="@string/gamma_default"
+            android:valueFrom="0.5"
+            android:valueTo="3.0"
+            opencv:labelBehavior="floating" />
+
+        <TextView
+            android:id="@+id/gammaValue"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:padding="5sp"
+            android:text="@string/gamma_default"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/analyticsSection"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10" >
+
+        <TextView
+            android:id="@+id/analyticsLabel"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:gravity="center_vertical"
+            android:padding="5sp"
+            android:text="@string/analytics_label"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/analyticsCheckbox"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="false"
+            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/translateMorseSection"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10" >
+
+        <TextView
+            android:id="@+id/translateMorseLabel"
+            android:layout_width="0sp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:gravity="center_vertical"
+            android:padding="5sp"
+            android:text="@string/translate_morse_label"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/translateMorseCheckbox"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint=""
+            android:checked="false"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </LinearLayout>
+
+</LinearLayout>

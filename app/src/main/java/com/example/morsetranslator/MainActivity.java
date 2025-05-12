@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.Locale;
 
 import android.Manifest;
-import android.view.View;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.content.Intent;
 import android.content.Context;
 import android.content.ClipData;
@@ -53,8 +53,103 @@ public class MainActivity extends AppCompatActivity {
     // Для управления событиями в случае окончания воспроизведения звука или вспышке фонарика
     private final Handler onStopHandler = new Handler();
 
-    private static final Map<Character, String> TO_MORSE_CODE_MAP = new HashMap<>();
     private static final int SHORT_BEEP_LENGTH_MS = 100;
+    private static final Map<Character, String> MORSE_CODE_MAP = new HashMap<>();
+    static {
+        MORSE_CODE_MAP.put('а', "·—");
+        MORSE_CODE_MAP.put('б', "—···");
+        MORSE_CODE_MAP.put('в', "·——");
+        MORSE_CODE_MAP.put('г', "——·");
+        MORSE_CODE_MAP.put('д', "—··");
+        MORSE_CODE_MAP.put('е', "·");
+        MORSE_CODE_MAP.put('ё', "·");
+        MORSE_CODE_MAP.put('ж', "···—");
+        MORSE_CODE_MAP.put('з', "——··");
+        MORSE_CODE_MAP.put('и', "··");
+        MORSE_CODE_MAP.put('й', "·———");
+        MORSE_CODE_MAP.put('к', "—·—");
+        MORSE_CODE_MAP.put('л', "·—··");
+        MORSE_CODE_MAP.put('м', "——");
+        MORSE_CODE_MAP.put('н', "—·");
+        MORSE_CODE_MAP.put('о', "———");
+        MORSE_CODE_MAP.put('п', "·——·");
+        MORSE_CODE_MAP.put('р', "·—·");
+        MORSE_CODE_MAP.put('с', "···");
+        MORSE_CODE_MAP.put('т', "—");
+        MORSE_CODE_MAP.put('у', "··—");
+        MORSE_CODE_MAP.put('ф', "··—·");
+        MORSE_CODE_MAP.put('х', "····");
+        MORSE_CODE_MAP.put('ц', "—·—·");
+        MORSE_CODE_MAP.put('ч', "———·");
+        MORSE_CODE_MAP.put('ш', "————");
+        MORSE_CODE_MAP.put('щ', "——·—");
+        MORSE_CODE_MAP.put('ъ', "——·——");
+        MORSE_CODE_MAP.put('ы', "—·——");
+        MORSE_CODE_MAP.put('ь', "—··—");
+        MORSE_CODE_MAP.put('э', "··—··");
+        MORSE_CODE_MAP.put('ю', "··——");
+        MORSE_CODE_MAP.put('я', "·—·—");
+
+        MORSE_CODE_MAP.put('a', "·—");
+        MORSE_CODE_MAP.put('b', "—···");
+        MORSE_CODE_MAP.put('c', "—·—·");
+        MORSE_CODE_MAP.put('d', "—··");
+        MORSE_CODE_MAP.put('e', "·");
+        MORSE_CODE_MAP.put('f', "··—·");
+        MORSE_CODE_MAP.put('g', "——·");
+        MORSE_CODE_MAP.put('h', "····");
+        MORSE_CODE_MAP.put('i', "··");
+        MORSE_CODE_MAP.put('j', "·———");
+        MORSE_CODE_MAP.put('k', "—·—");
+        MORSE_CODE_MAP.put('l', "·—··");
+        MORSE_CODE_MAP.put('m', "——");
+        MORSE_CODE_MAP.put('n', "—·");
+        MORSE_CODE_MAP.put('o', "———");
+        MORSE_CODE_MAP.put('p', "·——·");
+        MORSE_CODE_MAP.put('q', "——·—");
+        MORSE_CODE_MAP.put('r', "·—·");
+        MORSE_CODE_MAP.put('s', "···");
+        MORSE_CODE_MAP.put('t', "—");
+        MORSE_CODE_MAP.put('u', "··—");
+        MORSE_CODE_MAP.put('v', "···—");
+        MORSE_CODE_MAP.put('w', "·——");
+        MORSE_CODE_MAP.put('x', "—··—");
+        MORSE_CODE_MAP.put('y', "—·——");
+        MORSE_CODE_MAP.put('z', "——··");
+
+        MORSE_CODE_MAP.put('1', "·————");
+        MORSE_CODE_MAP.put('2', "··———");
+        MORSE_CODE_MAP.put('3', "···——");
+        MORSE_CODE_MAP.put('4', "····—");
+        MORSE_CODE_MAP.put('5', "·····");
+        MORSE_CODE_MAP.put('6', "—····");
+        MORSE_CODE_MAP.put('7', "——···");
+        MORSE_CODE_MAP.put('8', "———··");
+        MORSE_CODE_MAP.put('9', "————·");
+        MORSE_CODE_MAP.put('0', "—————");
+
+        MORSE_CODE_MAP.put('.', "······");
+        MORSE_CODE_MAP.put(',', "·—·—·—");
+        MORSE_CODE_MAP.put(':', "———···");
+        MORSE_CODE_MAP.put(';', "—·—·—·");
+        MORSE_CODE_MAP.put('(', "—·——·—");
+        MORSE_CODE_MAP.put(')', "—·——·—");
+        MORSE_CODE_MAP.put('\'', "·————·");
+        MORSE_CODE_MAP.put('\"', "·—··—·");
+        MORSE_CODE_MAP.put('«', "·—··—·");
+        MORSE_CODE_MAP.put('»', "·—··—·");
+        MORSE_CODE_MAP.put('-', "—····—");
+        MORSE_CODE_MAP.put('/', "—··—·");
+        MORSE_CODE_MAP.put('_', "··——·—");
+        MORSE_CODE_MAP.put('?', "··——··");
+        MORSE_CODE_MAP.put('!', "——··——");
+        MORSE_CODE_MAP.put('+', "·—·—·");
+        MORSE_CODE_MAP.put('§', "—···—");
+        MORSE_CODE_MAP.put('@', "·——·—·");
+
+        MORSE_CODE_MAP.put(' ', "/");
+        MORSE_CODE_MAP.put('\n', "\n");
+    }
 
     // При создании активности
     @Override
@@ -139,102 +234,6 @@ public class MainActivity extends AppCompatActivity {
             }
         } catch (Exception e) {
             noCamera = true; // Если произошла ошибка, значит у устройства нету камеры
-        }
-
-        {
-            TO_MORSE_CODE_MAP.put('а', "·—");
-            TO_MORSE_CODE_MAP.put('б', "—···");
-            TO_MORSE_CODE_MAP.put('в', "·——");
-            TO_MORSE_CODE_MAP.put('г', "——·");
-            TO_MORSE_CODE_MAP.put('д', "—··");
-            TO_MORSE_CODE_MAP.put('е', "·");
-            TO_MORSE_CODE_MAP.put('ё', "·");
-            TO_MORSE_CODE_MAP.put('ж', "···—");
-            TO_MORSE_CODE_MAP.put('з', "——··");
-            TO_MORSE_CODE_MAP.put('и', "··");
-            TO_MORSE_CODE_MAP.put('й', "·———");
-            TO_MORSE_CODE_MAP.put('к', "—·—");
-            TO_MORSE_CODE_MAP.put('л', "·—··");
-            TO_MORSE_CODE_MAP.put('м', "——");
-            TO_MORSE_CODE_MAP.put('н', "—·");
-            TO_MORSE_CODE_MAP.put('о', "———");
-            TO_MORSE_CODE_MAP.put('п', "·——·");
-            TO_MORSE_CODE_MAP.put('р', "·—·");
-            TO_MORSE_CODE_MAP.put('с', "···");
-            TO_MORSE_CODE_MAP.put('т', "—");
-            TO_MORSE_CODE_MAP.put('у', "··—");
-            TO_MORSE_CODE_MAP.put('ф', "··—·");
-            TO_MORSE_CODE_MAP.put('х', "····");
-            TO_MORSE_CODE_MAP.put('ц', "—·—·");
-            TO_MORSE_CODE_MAP.put('ч', "———·");
-            TO_MORSE_CODE_MAP.put('ш', "————");
-            TO_MORSE_CODE_MAP.put('щ', "——·—");
-            TO_MORSE_CODE_MAP.put('ъ', "——·——");
-            TO_MORSE_CODE_MAP.put('ы', "—·——");
-            TO_MORSE_CODE_MAP.put('ь', "—··—");
-            TO_MORSE_CODE_MAP.put('э', "··—··");
-            TO_MORSE_CODE_MAP.put('ю', "··——");
-            TO_MORSE_CODE_MAP.put('я', "·—·—");
-
-            TO_MORSE_CODE_MAP.put('a', "·—");
-            TO_MORSE_CODE_MAP.put('b', "—···");
-            TO_MORSE_CODE_MAP.put('c', "—·—·");
-            TO_MORSE_CODE_MAP.put('d', "—··");
-            TO_MORSE_CODE_MAP.put('e', "·");
-            TO_MORSE_CODE_MAP.put('f', "··—·");
-            TO_MORSE_CODE_MAP.put('g', "——·");
-            TO_MORSE_CODE_MAP.put('h', "····");
-            TO_MORSE_CODE_MAP.put('i', "··");
-            TO_MORSE_CODE_MAP.put('j', "·———");
-            TO_MORSE_CODE_MAP.put('k', "—·—");
-            TO_MORSE_CODE_MAP.put('l', "·—··");
-            TO_MORSE_CODE_MAP.put('m', "——");
-            TO_MORSE_CODE_MAP.put('n', "—·");
-            TO_MORSE_CODE_MAP.put('o', "———");
-            TO_MORSE_CODE_MAP.put('p', "·——·");
-            TO_MORSE_CODE_MAP.put('q', "——·—");
-            TO_MORSE_CODE_MAP.put('r', "·—·");
-            TO_MORSE_CODE_MAP.put('s', "···");
-            TO_MORSE_CODE_MAP.put('t', "—");
-            TO_MORSE_CODE_MAP.put('u', "··—");
-            TO_MORSE_CODE_MAP.put('v', "···—");
-            TO_MORSE_CODE_MAP.put('w', "·——");
-            TO_MORSE_CODE_MAP.put('x', "—··—");
-            TO_MORSE_CODE_MAP.put('y', "—·——");
-            TO_MORSE_CODE_MAP.put('z', "——··");
-
-            TO_MORSE_CODE_MAP.put('1', "·————");
-            TO_MORSE_CODE_MAP.put('2', "··———");
-            TO_MORSE_CODE_MAP.put('3', "···——");
-            TO_MORSE_CODE_MAP.put('4', "····—");
-            TO_MORSE_CODE_MAP.put('5', "·····");
-            TO_MORSE_CODE_MAP.put('6', "—····");
-            TO_MORSE_CODE_MAP.put('7', "——···");
-            TO_MORSE_CODE_MAP.put('8', "———··");
-            TO_MORSE_CODE_MAP.put('9', "————·");
-            TO_MORSE_CODE_MAP.put('0', "—————");
-
-            TO_MORSE_CODE_MAP.put('.', "······");
-            TO_MORSE_CODE_MAP.put(',', "·—·—·—");
-            TO_MORSE_CODE_MAP.put(':', "———···");
-            TO_MORSE_CODE_MAP.put(';', "—·—·—·");
-            TO_MORSE_CODE_MAP.put('(', "—·——·—");
-            TO_MORSE_CODE_MAP.put(')', "—·——·—");
-            TO_MORSE_CODE_MAP.put('\'', "·————·");
-            TO_MORSE_CODE_MAP.put('\"', "·—··—·");
-            TO_MORSE_CODE_MAP.put('«', "·—··—·");
-            TO_MORSE_CODE_MAP.put('»', "·—··—·");
-            TO_MORSE_CODE_MAP.put('-', "—····—");
-            TO_MORSE_CODE_MAP.put('/', "—··—·");
-            TO_MORSE_CODE_MAP.put('_', "··——·—");
-            TO_MORSE_CODE_MAP.put('?', "··——··");
-            TO_MORSE_CODE_MAP.put('!', "——··——");
-            TO_MORSE_CODE_MAP.put('+', "·—·—·");
-            TO_MORSE_CODE_MAP.put('§', "—···—");
-            TO_MORSE_CODE_MAP.put('@', "·——·—·");
-
-            TO_MORSE_CODE_MAP.put(' ', "/");
-            TO_MORSE_CODE_MAP.put('\n', "\n");
         }
 
         textOutput.setOnLongClickListener(v -> {
@@ -360,10 +359,10 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder translatedText = new StringBuilder();
         for (char c : originalText.toCharArray()) {
             if (c == '\n') {
-                translatedText.append(TO_MORSE_CODE_MAP.get(c));
+                translatedText.append(MORSE_CODE_MAP.get(c));
             }
-            else if (TO_MORSE_CODE_MAP.get(c) != null) {
-                translatedText.append(TO_MORSE_CODE_MAP.get(c)).append(' ');
+            else if (MORSE_CODE_MAP.get(c) != null) {
+                translatedText.append(MORSE_CODE_MAP.get(c)).append(' ');
             }
             else translatedText.append("? ");
         }
@@ -376,7 +375,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Скажите что-нибудь");
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,
+                getResources().getString(R.string.microphone_extra_prompt));
 
         // Указываем несколько языков через EXTRA_LANGUAGE_PREFERENCE
         String[] languages = {"en-US", "ru-RU"}; // Английский, русский

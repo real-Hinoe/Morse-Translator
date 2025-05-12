@@ -5,14 +5,45 @@
     <string name="output_hint">Вывод\n(зажмите, чтобы скопировать)</string>
     <string name="translate_button">Перевести</string>
     <string name="microphone_button_description">Записать сообщение</string>
+    <string name="microphone_extra_prompt">Скажите что-нибудь</string>
     <string name="camera_button_description">Включить камеру</string>
     <string name="speaker_button_description">Воспроизвести звуком</string>
     <string name="flashlight_button_description">Воспроизвести фонариком</string>
 
     <!-- Camera Activity -->
+    <string name="drawer_button_description">Выдвижное меню</string>
+    <string name="start_stop_button_description">Запуск/Остановка</string>
     <string name="back_button_description">Назад</string>
     <string name="eye_button_description">Режим морганий</string>
     <string name="switch_camera_button_description">Переключить камеру</string>
     <string name="flash_button_description">Режим вспышек</string>
-    <string name="status_description">Статус</string>
+    <string name="morse_view_hint">Ожидание…</string>
+    <string name="analytics_hint">Кол-во ярких пикселей: —</string>
+
+    <!-- Drawer Menu -->
+    <string name="header_label">Настройки</string>
+    <string name="language_label">Язык</string>
+    <string name="dot_length_label">Макс. длина точки, мс</string>
+    <string name="pause_length_label">Длина паузы между буквами, с</string>
+    <string name="img_brightness_label">Изменить яркость изображения</string>
+    <string name="threshold_label">Мин. кол-во ярких пикселей для регистрации вспышки, тыс.</string>
+    <string name="pixel_brightness_label">Мин. яркость пикселя</string>
+    <string name="gamma_label">Значение гаммы</string>
+    <string name="analytics_label">Показывать аналитику</string>
+    <string name="translate_morse_label">Расшифровывать сигналы</string>
+
+    <string name="dot_length_description">Слайдер длины точки</string>
+    <string name="pause_length_description">Слайдер длины паузы</string>
+    <string name="img_brightness_description">Слайдер яркости изображения</string>
+    <string name="threshold_description">Слайдер кол-ва пикселей</string>
+    <string name="pixel_brightness_description">Слайдер яркости пикселя</string>
+    <string name="gamma_description">Слайдер гаммы</string>
+
+    <string name="language_default">RU</string>
+    <string name="dot_length_default">300</string>
+    <string name="pause_length_default">1.0</string>
+    <string name="img_brightness_default">0</string>
+    <string name="threshold_default">5</string>
+    <string name="pixel_brightness_default">254</string>
+    <string name="gamma_default">3.0</string>
 </resources>

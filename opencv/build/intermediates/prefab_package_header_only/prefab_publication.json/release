@@ -1,5 +1,5 @@
 {
-  "installationFolder": "C:\\Users\\evilt\\AndroidStudioProjects\\MorseTranslator\\opencv\\build\\intermediates\\prefab_package\\release\\prefab",
+  "installationFolder": "D:\\Projects\\AndroidStudioProjects\\MorseTranslator\\opencv\\build\\intermediates\\prefab_package\\release\\prefab",
   "gradlePath": ":opencv",
   "packageInfo": {
     "packageName": "opencv",
@@ -8,7 +8,7 @@
     "modules": [
       {
         "moduleName": "opencv_jni_shared",
-        "moduleHeaders": "C:\\Users\\evilt\\AndroidStudioProjects\\MorseTranslator\\opencv\\native\\jni\\include",
+        "moduleHeaders": "D:\\Projects\\AndroidStudioProjects\\MorseTranslator\\opencv\\native\\jni\\include",
         "moduleExportLibraries": [],
         "abis": []
       }

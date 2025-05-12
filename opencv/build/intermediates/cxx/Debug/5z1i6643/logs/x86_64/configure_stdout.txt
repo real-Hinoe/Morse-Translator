@@ -12,4 +12,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/evilt/AndroidStudioProjects/MorseTranslator/opencv/.cxx/Debug/5z1i6643/x86_64
+-- Build files have been written to: D:/Projects/AndroidStudioProjects/MorseTranslator/opencv/.cxx/Debug/5z1i6643/x86_64
