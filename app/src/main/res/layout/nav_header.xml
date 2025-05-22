@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/header_label"
-        android:textColor="@color/white"
+        android:textColor="@color/button_text"
         android:textSize="35sp" />
 
     <LinearLayout
@@ -31,7 +31,7 @@
             android:layout_weight="5"
             android:padding="5sp"
             android:text="@string/language_label"
-            android:textColor="@color/white"
+            android:textColor="@color/button_text"
             android:textSize="15sp" />
 
         <TextView
@@ -42,7 +42,7 @@
             android:gravity="end"
             android:padding="5sp"
             android:text="@string/language_default"
-            android:textColor="@color/white"
+            android:textColor="@color/button_text"
             android:textSize="15sp" />
 
         <Spinner
@@ -62,7 +62,7 @@
         android:layout_gravity="start"
         android:padding="5sp"
         android:text="@string/dot_length_label"
-        android:textColor="@color/white"
+        android:textColor="@color/button_text"
         android:textSize="15sp" />
 
     <LinearLayout
@@ -93,7 +93,7 @@
             android:gravity="center_vertical"
             android:padding="5sp"
             android:text="@string/dot_length_default"
-            android:textColor="@color/white"
+            android:textColor="@color/button_text"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -105,7 +105,7 @@
         android:layout_gravity="start"
         android:padding="5sp"
         android:text="@string/pause_length_label"
-        android:textColor="@color/white"
+        android:textColor="@color/button_text"
         android:textSize="15sp" />
 
     <LinearLayout
@@ -136,7 +136,7 @@
             android:gravity="center_vertical"
             android:padding="5sp"
             android:text="@string/pause_length_default"
-            android:textColor="@color/white"
+            android:textColor="@color/button_text"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -148,7 +148,7 @@
         android:layout_gravity="start"
         android:padding="5sp"
         android:text="@string/img_brightness_label"
-        android:textColor="@color/white"
+        android:textColor="@color/button_text"
         android:textSize="15sp"
         android:visibility="visible" />
 
@@ -180,7 +180,7 @@
             android:gravity="center_vertical"
             android:padding="5sp"
             android:text="@string/img_brightness_default"
-            android:textColor="@color/white"
+            android:textColor="@color/button_text"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -192,7 +192,7 @@
         android:layout_gravity="start"
         android:padding="5sp"
         android:text="@string/threshold_label"
-        android:textColor="@color/white"
+        android:textColor="@color/button_text"
         android:textSize="15sp"
         android:visibility="visible" />
 
@@ -225,7 +225,7 @@
             android:gravity="center_vertical"
             android:padding="5sp"
             android:text="@string/threshold_default"
-            android:textColor="@color/white"
+            android:textColor="@color/button_text"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -237,7 +237,7 @@
         android:layout_gravity="start"
         android:padding="5sp"
         android:text="@string/pixel_brightness_label"
-        android:textColor="@color/white"
+        android:textColor="@color/button_text"
         android:textSize="15sp"
         android:visibility="visible" />
 
@@ -270,7 +270,7 @@
             android:gravity="center_vertical"
             android:padding="5sp"
             android:text="@string/pixel_brightness_default"
-            android:textColor="@color/white"
+            android:textColor="@color/button_text"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -282,7 +282,7 @@
         android:layout_gravity="start"
         android:padding="5sp"
         android:text="@string/gamma_label"
-        android:textColor="@color/white"
+        android:textColor="@color/button_text"
         android:textSize="15sp"
         android:visibility="visible" />
 
@@ -315,7 +315,7 @@
             android:gravity="center_vertical"
             android:padding="5sp"
             android:text="@string/gamma_default"
-            android:textColor="@color/white"
+            android:textColor="@color/button_text"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -335,7 +335,7 @@
             android:gravity="center_vertical"
             android:padding="5sp"
             android:text="@string/analytics_label"
-            android:textColor="@color/white"
+            android:textColor="@color/button_text"
             android:textSize="15sp" />
 
         <CheckBox
@@ -363,7 +363,7 @@
             android:gravity="center_vertical"
             android:padding="5sp"
             android:text="@string/translate_morse_label"
-            android:textColor="@color/white"
+            android:textColor="@color/button_text"
             android:textSize="15sp" />
 
         <CheckBox

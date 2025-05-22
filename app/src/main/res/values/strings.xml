@@ -3,11 +3,12 @@
     <string name="app_name">Транслятор Морзе</string>
     <string name="input_hint">Ввод</string>
     <string name="output_hint">Вывод\n(зажмите, чтобы скопировать)</string>
-    <string name="translate_button">Перевести</string>
+    <string name="about_button_description">О приложении</string>
     <string name="microphone_button_description">Записать сообщение</string>
     <string name="microphone_extra_prompt">Скажите что-нибудь</string>
     <string name="camera_button_description">Включить камеру</string>
     <string name="speaker_button_description">Воспроизвести звуком</string>
+    <string name="translate_button">Перевести</string>
     <string name="flashlight_button_description">Воспроизвести фонариком</string>
 
     <!-- Camera Activity -->

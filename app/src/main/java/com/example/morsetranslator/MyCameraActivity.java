@@ -66,7 +66,7 @@ public class MyCameraActivity extends CameraActivity
     public TextView thresholdLabel, pixelBrightnessLabel, gammaLabel;
     public LinearLayout thresholdSection, pixelBrightnessSection, gammaSection;
     private Rect[] facesToDraw, eyesToDraw = new Rect[0];
-    private final View[] btnsToBlock = new View[4];
+    private final ImageButton[] btnsToBlock = new ImageButton[4];
     private final List<String> morseSignals = new ArrayList<>(); // Список сигналов Морзе
     private final Handler handler = new Handler();
     private int cameraFacing = LENS_FACING_BACK; // Задняя камера по умолчанию
@@ -597,15 +597,18 @@ public class MyCameraActivity extends CameraActivity
 
     // Блокировка кнопок во время распознавания
     private void disableButtons() {
-        for (View button : btnsToBlock) {
-            button.setEnabled(false);
-            button.getAlpha();
+        for (ImageButton button : btnsToBlock) {
+            button.setImageAlpha(255);
+            button.setEnabled(true);
         }
     }
 
     // Разблокировка кнопок после распознавания
     private void enableButtons() {
-        for (View button : btnsToBlock) button.setEnabled(true);
+        for (ImageButton button : btnsToBlock) {
+            button.setImageAlpha(255);
+            button.setEnabled(true);
+        }
     }
 
     // При начале трансляции вида с камеры

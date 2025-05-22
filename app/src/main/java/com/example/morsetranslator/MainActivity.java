@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Locale;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -41,14 +42,14 @@ public class MainActivity extends AppCompatActivity {
     private EditText textInput;
     private TextView textOutput;
     public Button toMorseCodeButton;
-    public ImageButton microphoneButton, cameraButton, speakerButton, flashlightButton;
+    public ImageButton aboutButton, microphoneButton, cameraButton, speakerButton, flashlightButton;
     private CameraManager cameraManager;
     private String cameraId, savedInput, savedOutput;
     private boolean isFlashOn, soundIsPlaying, lightIsFlashing, noCamera = false;
     private ActivityResultLauncher<Intent> speechRecognizerLauncher;
     private SoundPool soundPool;
     private int shortBeep, longBeep;
-    private final View[] allButtons = new View[5];
+    private final View[] allButtons = new View[6];
     private final Handler onStartHandler = new Handler(); // Для задержки воспроизведения
     // Для управления событиями в случае окончания воспроизведения звука или вспышке фонарика
     private final Handler onStopHandler = new Handler();
@@ -172,21 +173,23 @@ public class MainActivity extends AppCompatActivity {
 
         textInput = findViewById(R.id.textInput);
         textOutput = findViewById(R.id.textOutput);
-        toMorseCodeButton = findViewById(R.id.translateButton);
+        aboutButton = findViewById(R.id.drawerButton);
         microphoneButton = findViewById(R.id.microphoneButton);
         cameraButton = findViewById(R.id.cameraButton);
         speakerButton = findViewById(R.id.speakerButton);
+        toMorseCodeButton = findViewById(R.id.translateButton);
         flashlightButton = findViewById(R.id.flashlightButton);
 
         if (savedInstanceState != null) {
             textInput.setText(savedInput);
             textOutput.setText(savedOutput);
         }
-        allButtons[0] = toMorseCodeButton;
+        allButtons[0] = aboutButton;
         allButtons[1] = microphoneButton;
         allButtons[2] = cameraButton;
         allButtons[3] = speakerButton;
-        allButtons[4] = flashlightButton;
+        allButtons[4] = toMorseCodeButton;
+        allButtons[5] = flashlightButton;
 
         // Если текст слишком большой, его можно будет скролить
         textOutput.setMovementMethod(new android.text.method.ScrollingMovementMethod());
@@ -240,10 +243,24 @@ public class MainActivity extends AppCompatActivity {
             copyToClipboard();
             return true;
         });
-        toMorseCodeButton.setOnClickListener(v -> toMorseCode());
+
         microphoneButton.setOnClickListener(v -> {
             disableAllButtons();
             startVoiceInput();
+        });
+        aboutButton.setOnClickListener(v -> {
+            String msg =
+                    "Транслятор/Распознаватель азбуки Морзе\n" +
+                    "для мобильных устройств на базе Android\n\n" +
+                    "Дмитрий Савинцев, СФУ ИКИТ, КИ23-16/1б";
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            AlertDialog alertDialog = builder
+                    .setTitle("О приложении")
+                    .setMessage(msg)
+                    .setIcon(R.drawable.app_logo)
+                    .create();
+            alertDialog.show();
+            alertDialog.getWindow().setLayout(1075, 575);
         });
         cameraButton.setOnClickListener(v -> {
             // Переход к активности с камерой
@@ -280,6 +297,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        toMorseCodeButton.setOnClickListener(v -> toMorseCode());
         flashlightButton.setOnClickListener(v -> {
             if (lightIsFlashing) {
                 onStartHandler.removeCallbacksAndMessages(null); // Очистить все задачи
@@ -531,17 +549,31 @@ public class MainActivity extends AppCompatActivity {
 
     // Разблокировка всех кнопок
     private void enableAllButtons() {
-        for (View button : allButtons) button.setEnabled(true);
+        for (View button : allButtons) {
+            if (!(button instanceof Button)) {
+                ((ImageButton) button).setImageAlpha(255);
+                button.setEnabled(true);
+            }
+        }
     }
 
     // Блокировка всех кнопок
     private void disableAllButtons() {
-        for (View button : allButtons) button.setEnabled(false);
+        for (View button : allButtons) {
+            if (!(button instanceof Button)) {
+                ((ImageButton) button).setImageAlpha(40);
+                button.setEnabled(false);
+            }
+        }
     }
-
     // Блокировка всех кнопок, кроме указанной
     private void disableAllButtonsExcept(View exceptionButton) {
-        for (View button : allButtons) button.setEnabled(button == exceptionButton);
+        for (View button : allButtons) {
+            if (!(button instanceof Button)) {
+                ((ImageButton) button).setImageAlpha(40);
+                button.setEnabled(button == exceptionButton);
+            }
+        }
     }
 
     // Сохранение данных перед пересозданием активности

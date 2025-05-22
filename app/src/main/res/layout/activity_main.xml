@@ -66,19 +66,18 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/translateButton"
-        android:layout_width="wrap_content"
+    <ImageButton
+        android:id="@+id/drawerButton"
+        android:layout_width="55sp"
         android:layout_height="55sp"
         android:backgroundTint="@color/button_background"
-        android:fontFamily="@font/aoboshi_one"
-        android:text="@string/translate_button"
-        android:textColor="@color/button_text"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/toolbarLower"
-        app:layout_constraintEnd_toEndOf="@+id/toolbarLower"
-        app:layout_constraintTop_toTopOf="@+id/toolbarLower"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbarLower" />
+        android:contentDescription="@string/about_button_description"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="@id/toolbarUpper"
+        app:layout_constraintTop_toTopOf="@+id/toolbarUpper"
+        app:layout_constraintBottom_toBottomOf="@id/toolbarUpper"
+        app:tint = "@color/button_text"
+        app:srcCompat="@drawable/tribar" />
 
     <ImageButton
         android:id="@+id/microphoneButton"
@@ -88,6 +87,7 @@
         android:contentDescription="@string/microphone_button_description"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="@id/toolbarUpper"
+        app:layout_constraintEnd_toEndOf="@id/toolbarUpper"
         app:layout_constraintTop_toTopOf="@+id/toolbarUpper"
         app:layout_constraintBottom_toBottomOf="@id/toolbarUpper"
         app:srcCompat="@drawable/microphone" />
@@ -115,6 +115,20 @@
         app:layout_constraintTop_toTopOf="@+id/toolbarLower"
         app:layout_constraintBottom_toBottomOf="@+id/toolbarLower"
         app:srcCompat="@drawable/speaker" />
+
+    <Button
+        android:id="@+id/translateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="55sp"
+        android:backgroundTint="@color/button_background"
+        android:fontFamily="@font/aoboshi_one"
+        android:text="@string/translate_button"
+        android:textColor="@color/button_text"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/toolbarLower"
+        app:layout_constraintEnd_toEndOf="@+id/toolbarLower"
+        app:layout_constraintTop_toTopOf="@+id/toolbarLower"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarLower" />
 
     <ImageButton
         android:id="@+id/flashlightButton"
